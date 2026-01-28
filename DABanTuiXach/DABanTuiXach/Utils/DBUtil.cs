@@ -10,13 +10,10 @@ namespace DABanTuiXach.Utils
 {
 	internal class DBUtil
 	{
-		private static readonly string _connectionString = "Server=TRANANH-SERVER;" +
-		 "User Id=trananhdb;" +
-		 "Password=12341234;" +
-		 "Database=QL_Hoa_Don;" +
-		 "Integrated Security=True;" +
-		 "Encrypt=True;" +
-		 "TrustServerCertificate=True;";
+		private static readonly string _connectionString = "Server=ANH2005\\SQLEXPRESS;" +
+		"Database=Du_An_Mau_PH50266;" +
+		"Integrated Security=True;" +
+		"TrustServerCertificate=True;";
 
 		private static SqlConnection? _connection = null;
 

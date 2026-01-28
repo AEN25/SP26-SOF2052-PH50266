@@ -16,5 +16,10 @@ namespace DABanTuiXach
 		{
 			InitializeComponent();
 		}
+
+		private void HoaDon_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

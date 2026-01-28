@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using DABanTuiXach.Utils;
+using System.Data;
 
 namespace DABanTuiXach
 {
@@ -11,7 +12,16 @@ namespace DABanTuiXach
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			
+			string? err = DBUtil.OpenConnection();
+			if (err != null)
+			{
+				MessageBox.Show("Lỗi kết nối SQL: " + err);
+			}
+			else
+			{
+				MessageBox.Show("Kết nối SQL thành công!");
+			}
+			DBUtil.CloseConnection();
 			dataGridView1.AutoGenerateColumns = false;
 			dataGridView1.Columns.Clear();
 
