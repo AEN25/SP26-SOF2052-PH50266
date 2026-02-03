@@ -243,6 +243,7 @@
 			dtgvSanPhamChiTiet.RowTemplate.Height = 24;
 			dtgvSanPhamChiTiet.Size = new Size(724, 935);
 			dtgvSanPhamChiTiet.TabIndex = 2;
+			dtgvSanPhamChiTiet.CellContentClick += dtgvSanPhamChiTiet_CellContentClick;
 			// 
 			// txtTimSanPham
 			// 
@@ -305,6 +306,7 @@
 			btnTaoHoaDon.TabIndex = 4;
 			btnTaoHoaDon.Text = "Tạo hóa đơn";
 			btnTaoHoaDon.UseVisualStyleBackColor = true;
+			btnTaoHoaDon.Click += btnTaoHoaDon_Click;
 			// 
 			// txtTimKH
 			// 

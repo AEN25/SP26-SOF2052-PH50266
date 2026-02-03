@@ -268,13 +268,13 @@
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(2195, 1348);
+			ClientSize = new Size(2242, 1348);
 			Controls.Add(grpLocHoaDon);
 			Controls.Add(grpDanhSachHoaDon);
 			Controls.Add(grpChiTietHoaDon);
 			Margin = new Padding(2, 3, 2, 3);
 			Name = "HoaDon";
-			Text = "Quản lý hóa đơn";
+			Text = " ";
 			Load += HoaDon_Load;
 			grpLocHoaDon.ResumeLayout(false);
 			grpLocHoaDon.PerformLayout();

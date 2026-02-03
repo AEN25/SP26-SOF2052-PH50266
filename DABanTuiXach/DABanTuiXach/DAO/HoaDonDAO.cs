@@ -11,7 +11,7 @@ namespace DABanTuiXach.DAO
 	{
 		public int MaHoaDon { get; set; }
 
-		public string TenKhachHang { get; set; }
+		public KhachHangDAO KhachHang { get; set; }
 
 		public string SoDienThoai { get; set; }
 
@@ -19,12 +19,15 @@ namespace DABanTuiXach.DAO
 
 		public string PhuongThucThanhToan { get; set; }
 
-		public int TongTien { get; set; }
+		public decimal TongTien { get; set; }
 
 		public bool TrangThai { get; set; }
 
 		public int? MaKhachHang { get; set; }
 
 		public int? MaNhanVien { get; set; }
+		public List<HoaDonChiTiet> ChiTietList { get; set; } = new List<HoaDonChiTiet>();
+
+
 	}
 }
