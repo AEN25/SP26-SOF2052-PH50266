@@ -29,7 +29,7 @@ namespace DABanTuiXach.DAL
 			DBUtil.OpenConnection();
 
 			DataTable dt = DBUtil.ExecuteQueryTable(
-				"SELECT * FROM HoaDonChiTiet WHERE MaHoaDon=@0",
+				"SELECT * FROM HDCT WHERE MaHoaDon=@0",
 				new List<object> { maHoaDon }
 			);
 
@@ -37,19 +37,14 @@ namespace DABanTuiXach.DAL
 			return dt;
 		}
 
-		
+
 		public static void InsertHoaDon(HoaDonDAO hd)
 		{
 			DBUtil.OpenConnection();
 
-			if (hd.ChiTietList == null || hd.ChiTietList.Count == 0)
+			List<object> param = new()
 			{
-				DBUtil.CloseConnection();
-				throw new Exception("Hóa đơn phải có ít nhất 1 sản phẩm.");
-			}
-
-			List<object> parameters = new()
-			{
+				hd.TenKhachHang,
 				hd.SoDienThoai,
 				hd.NgayLapHoaDon,
 				hd.PhuongThucThanhToan,
@@ -60,21 +55,22 @@ namespace DABanTuiXach.DAL
 			};
 
 			string sqlCT = "";
-			int p = parameters.Count;
+			int p = param.Count;
 
 			foreach (var ct in hd.ChiTietList)
 			{
 				sqlCT += $@"
-				INSERT INTO HoaDonChiTiet
-				(MaHoaDon, MaSanPhamChiTiet, SoLuong, DonGia, TrangThai)
-				VALUES (@MaHoaDon, @{p}, @{p + 1}, @{p + 2}, @{p + 3})";
+				INSERT INTO HDCT
+				(tenSanPham, soLuong, gia, trangThai, maHoaDon, maSanPhamChiTiet)
+				VALUES (@{p}, @{p + 1}, @{p + 2}, @{p + 3}, @MaHoaDon, @{p + 4});";
 
-				parameters.Add(ct.MaSanPhamChiTiet);
-				parameters.Add(ct.SoLuong);
-				parameters.Add(ct.DonGia);
-				parameters.Add(ct.TrangThai ? 1 : 0);
+				param.Add(ct.TenSanPham);
+				param.Add(ct.SoLuong);
+				param.Add(ct.Gia);
+				param.Add(ct.TrangThai ? 1 : 0);
+				param.Add(ct.MaSanPhamChiTiet);
 
-				p += 4;
+				p += 5;
 			}
 
 			string sql = $@"
@@ -82,9 +78,9 @@ namespace DABanTuiXach.DAL
 				BEGIN TRAN
 
 				INSERT INTO HoaDon
-				(SoDienThoai, NgayLapHoaDon, PhuongThucThanhToan,
-				 TongTien, TrangThai, MaKhachHang, MaNhanVien)
-				VALUES (@0,@1,@2,@3,@4,@5,@6)
+				(tenKhachHang, soDienThoai, ngayLapHoaDon, phuongThucThanhToan,
+				 TongTien, trangThai, maKhachHang, maNhanVien)
+				VALUES (@0,@1,@2,@3,@4,@5,@6,@7)
 
 				DECLARE @MaHoaDon INT = SCOPE_IDENTITY()
 
@@ -93,15 +89,18 @@ namespace DABanTuiXach.DAL
 				COMMIT
 			END TRY
 			BEGIN CATCH
-				ROLLBACK
-				THROW
+				IF @@TRANCOUNT > 0
+					ROLLBACK
+				RAISERROR (N'Lỗi khi lưu hóa đơn', 16, 1)
 			END CATCH";
 
-			DBUtil.ExecuteNonQuery(sql, parameters);
+
+			DBUtil.ExecuteNonQuery(sql, param);
 			DBUtil.CloseConnection();
 		}
 
-		
+
+
 		public static void UpdateHoaDon(HoaDonDAO hd)
 		{
 			DBUtil.OpenConnection();
@@ -130,24 +129,14 @@ namespace DABanTuiXach.DAL
 			DBUtil.CloseConnection();
 		}
 
-		public static void DeleteHoaDon(int maHoaDon)
+		public static void DeleteHoaDonCho(int maHoaDon)
 		{
 			DBUtil.OpenConnection();
 
-			DBUtil.ExecuteNonQuery(
-				@"
-				BEGIN TRY
-					BEGIN TRAN
-					DELETE FROM HoaDonChiTiet WHERE MaHoaDon=@0
-					DELETE FROM HoaDon WHERE MaHoaDon=@0
-					COMMIT
-				END TRY
-				BEGIN CATCH
-					ROLLBACK
-					THROW
-				END CATCH",
-				new List<object> { maHoaDon }
-			);
+			DBUtil.ExecuteNonQuery(@"
+        DELETE FROM HDCT WHERE maHoaDon = @0;
+        DELETE FROM HoaDon WHERE maHoaDon = @0 AND trangThai = 0;",
+				new List<object> { maHoaDon });
 
 			DBUtil.CloseConnection();
 		}
@@ -163,5 +152,137 @@ namespace DABanTuiXach.DAL
 
 			DBUtil.CloseConnection();
 		}
+		public static DataTable SelectHoaDonDaThanhToan(
+		DateTime tuNgay,
+		DateTime denNgay,
+		string keyword)
+		{
+			DBUtil.OpenConnection();
+
+			string sql = @"
+			SELECT 
+				hd.maHoaDon,
+				hd.ngayLapHoaDon,
+				hd.tenKhachHang,
+				hd.soDienThoai,
+				nv.tenNhanVien,
+				hd.tongTien
+			FROM HoaDon hd
+			JOIN NhanVien nv ON hd.maNhanVien = nv.maNhanVien
+			WHERE hd.trangThai = 1
+			  AND hd.ngayLapHoaDon >= @0
+			  AND hd.ngayLapHoaDon < @1
+			  AND (
+					hd.tenKhachHang LIKE @2
+					OR hd.soDienThoai LIKE @2
+				  )
+			ORDER BY hd.ngayLapHoaDon DESC";
+
+					var dt = DBUtil.ExecuteQueryTable(sql, new List<object>
+			{
+				tuNgay,
+				denNgay,
+				"%" + keyword + "%"
+			});
+
+			DBUtil.CloseConnection();
+			return dt;
+
+		}
+		public static DataTable SelectTatCaHoaDonDaThanhToan()
+		{
+			DBUtil.OpenConnection();
+
+			string sql = @"
+			SELECT 
+				hd.maHoaDon,
+				hd.ngayLapHoaDon,
+				hd.tenKhachHang,
+				hd.soDienThoai,
+				nv.tenNhanVien,
+				hd.tongTien
+			FROM HoaDon hd
+			JOIN NhanVien nv ON hd.maNhanVien = nv.maNhanVien
+			WHERE hd.trangThai = 1
+			ORDER BY hd.ngayLapHoaDon DESC";
+
+			var dt = DBUtil.ExecuteQueryTable(sql, null);
+
+			DBUtil.CloseConnection();
+			return dt;
+		}
+		public static int InsertHoaDonCho(HoaDonDAO hd)
+		{
+			DBUtil.OpenConnection();
+
+			string sql = @"
+        INSERT INTO HoaDon
+        (tenKhachHang, soDienThoai, ngayLapHoaDon, phuongThucThanhToan,
+         tongTien, trangThai, maKhachHang, maNhanVien)
+        VALUES (@0,@1,@2,@3,@4,@5,@6,@7);
+
+        SELECT SCOPE_IDENTITY();";
+
+			object result = DBUtil.ExecuteScalar(sql, new List<object>
+	{
+		hd.TenKhachHang,
+		hd.SoDienThoai,
+		hd.NgayLapHoaDon,
+		hd.PhuongThucThanhToan,
+		0,              
+        0,              
+        hd.MaKhachHang,
+		hd.MaNhanVien
+	});
+
+			DBUtil.CloseConnection();
+			return Convert.ToInt32(result);
+		}
+		public static DataTable SelectHoaDonCho()
+		{
+			DBUtil.OpenConnection();
+
+			var dt = DBUtil.ExecuteQueryTable(@"
+			SELECT maHoaDon
+			FROM HoaDon
+			WHERE trangThai = 0
+			ORDER BY maHoaDon DESC", null);
+
+			DBUtil.CloseConnection();
+			return dt;
+		}
+		public static HoaDonDAO SelectHoaDonById(int maHoaDon)
+		{
+			DBUtil.OpenConnection();
+
+			DataTable dt = DBUtil.ExecuteQueryTable(@"
+			SELECT *
+			FROM HoaDon
+			WHERE maHoaDon = @0",
+				new List<object> { maHoaDon });
+
+			DBUtil.CloseConnection();
+
+			if (dt.Rows.Count == 0)
+				return null;
+
+			DataRow r = dt.Rows[0];
+
+			return new HoaDonDAO
+			{
+				MaHoaDon = Convert.ToInt32(r["maHoaDon"]),
+				TenKhachHang = r["tenKhachHang"].ToString(),
+				SoDienThoai = r["soDienThoai"].ToString(),
+				NgayLapHoaDon = Convert.ToDateTime(r["ngayLapHoaDon"]),
+				PhuongThucThanhToan = r["phuongThucThanhToan"].ToString(),
+				TongTien = Convert.ToInt32(r["tongTien"]),
+				TrangThai = Convert.ToBoolean(r["trangThai"]),
+				MaKhachHang = r["maKhachHang"] == DBNull.Value
+					? null
+					: Convert.ToInt32(r["maKhachHang"]),
+				MaNhanVien = Convert.ToInt32(r["maNhanVien"])
+			};
+		}
+
 	}
 }

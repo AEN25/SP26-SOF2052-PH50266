@@ -62,11 +62,11 @@
 			// 
 			DanhSach_KhachHang.Controls.Add(data_viewKH);
 			DanhSach_KhachHang.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			DanhSach_KhachHang.Location = new Point(2, 675);
-			DanhSach_KhachHang.Margin = new Padding(4, 3, 4, 3);
+			DanhSach_KhachHang.Location = new Point(2, 900);
+			DanhSach_KhachHang.Margin = new Padding(5, 4, 5, 4);
 			DanhSach_KhachHang.Name = "DanhSach_KhachHang";
-			DanhSach_KhachHang.Padding = new Padding(4, 3, 4, 3);
-			DanhSach_KhachHang.Size = new Size(1926, 339);
+			DanhSach_KhachHang.Padding = new Padding(5, 4, 5, 4);
+			DanhSach_KhachHang.Size = new Size(2201, 452);
 			DanhSach_KhachHang.TabIndex = 35;
 			DanhSach_KhachHang.TabStop = false;
 			DanhSach_KhachHang.Text = "Danh Sách Khách Hàng";
@@ -77,21 +77,22 @@
 			data_viewKH.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 			data_viewKH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			data_viewKH.Dock = DockStyle.Fill;
-			data_viewKH.Location = new Point(4, 28);
-			data_viewKH.Margin = new Padding(4, 3, 4, 3);
+			data_viewKH.Location = new Point(5, 35);
+			data_viewKH.Margin = new Padding(5, 4, 5, 4);
 			data_viewKH.Name = "data_viewKH";
 			data_viewKH.RowHeadersWidth = 51;
-			data_viewKH.Size = new Size(1918, 308);
+			data_viewKH.Size = new Size(2191, 413);
 			data_viewKH.TabIndex = 3;
+			data_viewKH.SelectionChanged += data_viewKH_SelectionChanged;
 			// 
 			// tb_timkiem
 			// 
 			tb_timkiem.AccessibleName = "";
 			tb_timkiem.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			tb_timkiem.Location = new Point(766, 617);
-			tb_timkiem.Margin = new Padding(4, 3, 4, 3);
+			tb_timkiem.Location = new Point(875, 823);
+			tb_timkiem.Margin = new Padding(5, 4, 5, 4);
 			tb_timkiem.Name = "tb_timkiem";
-			tb_timkiem.Size = new Size(545, 32);
+			tb_timkiem.Size = new Size(622, 38);
 			tb_timkiem.TabIndex = 33;
 			tb_timkiem.Tag = "";
 			// 
@@ -99,10 +100,10 @@
 			// 
 			lb_timkiemkhachhang.AutoSize = true;
 			lb_timkiemkhachhang.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			lb_timkiemkhachhang.Location = new Point(493, 621);
-			lb_timkiemkhachhang.Margin = new Padding(4, 0, 4, 0);
+			lb_timkiemkhachhang.Location = new Point(563, 828);
+			lb_timkiemkhachhang.Margin = new Padding(5, 0, 5, 0);
 			lb_timkiemkhachhang.Name = "lb_timkiemkhachhang";
-			lb_timkiemkhachhang.Size = new Size(228, 25);
+			lb_timkiemkhachhang.Size = new Size(287, 32);
 			lb_timkiemkhachhang.TabIndex = 34;
 			lb_timkiemkhachhang.Text = "Tìm kiếm khách hàng:";
 			// 
@@ -128,32 +129,33 @@
 			groupBox1.Controls.Add(lb_gioitinhkhachhang);
 			groupBox1.Controls.Add(label2);
 			groupBox1.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			groupBox1.Location = new Point(14, 117);
-			groupBox1.Margin = new Padding(4, 3, 4, 3);
+			groupBox1.Location = new Point(16, 156);
+			groupBox1.Margin = new Padding(5, 4, 5, 4);
 			groupBox1.Name = "groupBox1";
-			groupBox1.Padding = new Padding(4, 3, 4, 3);
-			groupBox1.Size = new Size(1893, 420);
+			groupBox1.Padding = new Padding(5, 4, 5, 4);
+			groupBox1.Size = new Size(2163, 560);
 			groupBox1.TabIndex = 31;
 			groupBox1.TabStop = false;
 			// 
 			// bt_reset
 			// 
 			bt_reset.BackColor = SystemColors.ActiveBorder;
-			bt_reset.Location = new Point(1203, 346);
-			bt_reset.Margin = new Padding(4, 3, 4, 3);
+			bt_reset.Location = new Point(1375, 461);
+			bt_reset.Margin = new Padding(5, 4, 5, 4);
 			bt_reset.Name = "bt_reset";
-			bt_reset.Size = new Size(181, 53);
+			bt_reset.Size = new Size(207, 71);
 			bt_reset.TabIndex = 27;
 			bt_reset.Text = "Clear";
 			bt_reset.UseVisualStyleBackColor = false;
+			bt_reset.Click += bt_reset_Click;
 			// 
 			// rb_ngunghoatdong
 			// 
 			rb_ngunghoatdong.AutoSize = true;
-			rb_ngunghoatdong.Location = new Point(646, 270);
-			rb_ngunghoatdong.Margin = new Padding(4, 3, 4, 3);
+			rb_ngunghoatdong.Location = new Point(738, 360);
+			rb_ngunghoatdong.Margin = new Padding(5, 4, 5, 4);
 			rb_ngunghoatdong.Name = "rb_ngunghoatdong";
-			rb_ngunghoatdong.Size = new Size(234, 29);
+			rb_ngunghoatdong.Size = new Size(291, 36);
 			rb_ngunghoatdong.TabIndex = 26;
 			rb_ngunghoatdong.TabStop = true;
 			rb_ngunghoatdong.Text = "Không thường xuyên";
@@ -162,10 +164,10 @@
 			// rb_conhoatdong
 			// 
 			rb_conhoatdong.AutoSize = true;
-			rb_conhoatdong.Location = new Point(310, 270);
-			rb_conhoatdong.Margin = new Padding(4, 3, 4, 3);
+			rb_conhoatdong.Location = new Point(354, 360);
+			rb_conhoatdong.Margin = new Padding(5, 4, 5, 4);
 			rb_conhoatdong.Name = "rb_conhoatdong";
-			rb_conhoatdong.Size = new Size(171, 29);
+			rb_conhoatdong.Size = new Size(213, 36);
 			rb_conhoatdong.TabIndex = 25;
 			rb_conhoatdong.TabStop = true;
 			rb_conhoatdong.Text = "Thường xuyên";
@@ -174,20 +176,20 @@
 			// tb_makhachhang
 			// 
 			tb_makhachhang.Enabled = false;
-			tb_makhachhang.Location = new Point(1008, 27);
-			tb_makhachhang.Margin = new Padding(4, 3, 4, 3);
+			tb_makhachhang.Location = new Point(1152, 36);
+			tb_makhachhang.Margin = new Padding(5, 4, 5, 4);
 			tb_makhachhang.Name = "tb_makhachhang";
-			tb_makhachhang.Size = new Size(269, 32);
+			tb_makhachhang.Size = new Size(307, 38);
 			tb_makhachhang.TabIndex = 24;
 			// 
 			// lb_makhachhang
 			// 
 			lb_makhachhang.AutoSize = true;
 			lb_makhachhang.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			lb_makhachhang.Location = new Point(803, 27);
-			lb_makhachhang.Margin = new Padding(4, 0, 4, 0);
+			lb_makhachhang.Location = new Point(918, 36);
+			lb_makhachhang.Margin = new Padding(5, 0, 5, 0);
 			lb_makhachhang.Name = "lb_makhachhang";
-			lb_makhachhang.Size = new Size(158, 25);
+			lb_makhachhang.Size = new Size(198, 32);
 			lb_makhachhang.TabIndex = 23;
 			lb_makhachhang.Text = "Mã khách hàng";
 			// 
@@ -195,74 +197,76 @@
 			// 
 			cbb_gioitinhKhachHang.FormattingEnabled = true;
 			cbb_gioitinhKhachHang.Items.AddRange(new object[] { "Nam", "Nữ" });
-			cbb_gioitinhKhachHang.Location = new Point(310, 180);
-			cbb_gioitinhKhachHang.Margin = new Padding(4, 3, 4, 3);
+			cbb_gioitinhKhachHang.Location = new Point(354, 240);
+			cbb_gioitinhKhachHang.Margin = new Padding(5, 4, 5, 4);
 			cbb_gioitinhKhachHang.Name = "cbb_gioitinhKhachHang";
-			cbb_gioitinhKhachHang.Size = new Size(627, 33);
+			cbb_gioitinhKhachHang.Size = new Size(716, 39);
 			cbb_gioitinhKhachHang.TabIndex = 22;
 			// 
 			// bt_sua
 			// 
 			bt_sua.BackColor = SystemColors.ActiveBorder;
-			bt_sua.Location = new Point(926, 346);
-			bt_sua.Margin = new Padding(4, 3, 4, 3);
+			bt_sua.Location = new Point(1058, 461);
+			bt_sua.Margin = new Padding(5, 4, 5, 4);
 			bt_sua.Name = "bt_sua";
-			bt_sua.Size = new Size(181, 53);
+			bt_sua.Size = new Size(207, 71);
 			bt_sua.TabIndex = 19;
 			bt_sua.Text = "Sửa";
 			bt_sua.UseVisualStyleBackColor = false;
+			bt_sua.Click += bt_sua_Click;
 			// 
 			// bt_them
 			// 
 			bt_them.BackColor = SystemColors.ActiveBorder;
-			bt_them.Location = new Point(646, 346);
-			bt_them.Margin = new Padding(4, 3, 4, 3);
+			bt_them.Location = new Point(738, 461);
+			bt_them.Margin = new Padding(5, 4, 5, 4);
 			bt_them.Name = "bt_them";
-			bt_them.Size = new Size(181, 53);
+			bt_them.Size = new Size(207, 71);
 			bt_them.TabIndex = 17;
 			bt_them.Text = "Thêm";
 			bt_them.UseVisualStyleBackColor = false;
+			bt_them.Click += bt_them_Click;
 			// 
 			// tb_email
 			// 
-			tb_email.Location = new Point(1230, 272);
-			tb_email.Margin = new Padding(4, 3, 4, 3);
+			tb_email.Location = new Point(1406, 363);
+			tb_email.Margin = new Padding(5, 4, 5, 4);
 			tb_email.Name = "tb_email";
-			tb_email.Size = new Size(627, 32);
+			tb_email.Size = new Size(716, 38);
 			tb_email.TabIndex = 15;
 			// 
 			// tb_diachi
 			// 
-			tb_diachi.Location = new Point(1230, 189);
-			tb_diachi.Margin = new Padding(4, 3, 4, 3);
+			tb_diachi.Location = new Point(1406, 252);
+			tb_diachi.Margin = new Padding(5, 4, 5, 4);
 			tb_diachi.Name = "tb_diachi";
-			tb_diachi.Size = new Size(627, 32);
+			tb_diachi.Size = new Size(716, 38);
 			tb_diachi.TabIndex = 14;
 			// 
 			// tb_sdt
 			// 
-			tb_sdt.Location = new Point(1230, 102);
-			tb_sdt.Margin = new Padding(4, 3, 4, 3);
+			tb_sdt.Location = new Point(1406, 136);
+			tb_sdt.Margin = new Padding(5, 4, 5, 4);
 			tb_sdt.Name = "tb_sdt";
-			tb_sdt.Size = new Size(627, 32);
+			tb_sdt.Size = new Size(716, 38);
 			tb_sdt.TabIndex = 13;
 			// 
 			// tb_tenKH
 			// 
-			tb_tenKH.Location = new Point(310, 97);
-			tb_tenKH.Margin = new Padding(4, 3, 4, 3);
+			tb_tenKH.Location = new Point(354, 129);
+			tb_tenKH.Margin = new Padding(5, 4, 5, 4);
 			tb_tenKH.Name = "tb_tenKH";
-			tb_tenKH.Size = new Size(627, 32);
+			tb_tenKH.Size = new Size(716, 38);
 			tb_tenKH.TabIndex = 10;
 			// 
 			// lb_trangthaikhachhang
 			// 
 			lb_trangthaikhachhang.AutoSize = true;
 			lb_trangthaikhachhang.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			lb_trangthaikhachhang.Location = new Point(41, 275);
-			lb_trangthaikhachhang.Margin = new Padding(4, 0, 4, 0);
+			lb_trangthaikhachhang.Location = new Point(47, 367);
+			lb_trangthaikhachhang.Margin = new Padding(5, 0, 5, 0);
 			lb_trangthaikhachhang.Name = "lb_trangthaikhachhang";
-			lb_trangthaikhachhang.Size = new Size(113, 25);
+			lb_trangthaikhachhang.Size = new Size(140, 32);
 			lb_trangthaikhachhang.TabIndex = 7;
 			lb_trangthaikhachhang.Text = "Trạng thái";
 			// 
@@ -270,10 +274,10 @@
 			// 
 			lb_emailkhachhang.AutoSize = true;
 			lb_emailkhachhang.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			lb_emailkhachhang.Location = new Point(985, 275);
-			lb_emailkhachhang.Margin = new Padding(4, 0, 4, 0);
+			lb_emailkhachhang.Location = new Point(1126, 367);
+			lb_emailkhachhang.Margin = new Padding(5, 0, 5, 0);
 			lb_emailkhachhang.Name = "lb_emailkhachhang";
-			lb_emailkhachhang.Size = new Size(67, 25);
+			lb_emailkhachhang.Size = new Size(84, 32);
 			lb_emailkhachhang.TabIndex = 6;
 			lb_emailkhachhang.Text = "Email";
 			// 
@@ -281,10 +285,10 @@
 			// 
 			lb_diachikhachhang.AutoSize = true;
 			lb_diachikhachhang.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			lb_diachikhachhang.Location = new Point(985, 189);
-			lb_diachikhachhang.Margin = new Padding(4, 0, 4, 0);
+			lb_diachikhachhang.Location = new Point(1126, 252);
+			lb_diachikhachhang.Margin = new Padding(5, 0, 5, 0);
 			lb_diachikhachhang.Name = "lb_diachikhachhang";
-			lb_diachikhachhang.Size = new Size(80, 25);
+			lb_diachikhachhang.Size = new Size(98, 32);
 			lb_diachikhachhang.TabIndex = 5;
 			lb_diachikhachhang.Text = "Địa chỉ";
 			// 
@@ -292,10 +296,10 @@
 			// 
 			lb_sodienthoaikhachhang.AutoSize = true;
 			lb_sodienthoaikhachhang.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			lb_sodienthoaikhachhang.Location = new Point(985, 105);
-			lb_sodienthoaikhachhang.Margin = new Padding(4, 0, 4, 0);
+			lb_sodienthoaikhachhang.Location = new Point(1126, 140);
+			lb_sodienthoaikhachhang.Margin = new Padding(5, 0, 5, 0);
 			lb_sodienthoaikhachhang.Name = "lb_sodienthoaikhachhang";
-			lb_sodienthoaikhachhang.Size = new Size(140, 25);
+			lb_sodienthoaikhachhang.Size = new Size(172, 32);
 			lb_sodienthoaikhachhang.TabIndex = 4;
 			lb_sodienthoaikhachhang.Text = "Số điện thoại";
 			// 
@@ -303,10 +307,10 @@
 			// 
 			lb_tenkhachhang.AutoSize = true;
 			lb_tenkhachhang.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			lb_tenkhachhang.Location = new Point(41, 97);
-			lb_tenkhachhang.Margin = new Padding(4, 0, 4, 0);
+			lb_tenkhachhang.Location = new Point(47, 129);
+			lb_tenkhachhang.Margin = new Padding(5, 0, 5, 0);
 			lb_tenkhachhang.Name = "lb_tenkhachhang";
-			lb_tenkhachhang.Size = new Size(169, 25);
+			lb_tenkhachhang.Size = new Size(212, 32);
 			lb_tenkhachhang.TabIndex = 2;
 			lb_tenkhachhang.Text = "Tên Khách Hàng";
 			// 
@@ -314,10 +318,10 @@
 			// 
 			lb_gioitinhkhachhang.AutoSize = true;
 			lb_gioitinhkhachhang.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			lb_gioitinhkhachhang.Location = new Point(50, 189);
-			lb_gioitinhkhachhang.Margin = new Padding(4, 0, 4, 0);
+			lb_gioitinhkhachhang.Location = new Point(57, 252);
+			lb_gioitinhkhachhang.Margin = new Padding(5, 0, 5, 0);
 			lb_gioitinhkhachhang.Name = "lb_gioitinhkhachhang";
-			lb_gioitinhkhachhang.Size = new Size(105, 25);
+			lb_gioitinhkhachhang.Size = new Size(128, 32);
 			lb_gioitinhkhachhang.TabIndex = 1;
 			lb_gioitinhkhachhang.Text = "Giới Tính";
 			// 
@@ -325,10 +329,10 @@
 			// 
 			label2.AutoSize = true;
 			label2.Font = new Font("Microsoft Sans Serif", 8.25F);
-			label2.Location = new Point(38, 48);
-			label2.Margin = new Padding(4, 0, 4, 0);
+			label2.Location = new Point(43, 64);
+			label2.Margin = new Padding(5, 0, 5, 0);
 			label2.Name = "label2";
-			label2.Size = new Size(0, 13);
+			label2.Size = new Size(0, 17);
 			label2.TabIndex = 0;
 			// 
 			// lb_thongtinkhachhang
@@ -336,24 +340,24 @@
 			lb_thongtinkhachhang.AutoSize = true;
 			lb_thongtinkhachhang.Font = new Font("Cambria", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
 			lb_thongtinkhachhang.ForeColor = SystemColors.MenuHighlight;
-			lb_thongtinkhachhang.Location = new Point(763, 21);
-			lb_thongtinkhachhang.Margin = new Padding(4, 0, 4, 0);
+			lb_thongtinkhachhang.Location = new Point(872, 28);
+			lb_thongtinkhachhang.Margin = new Padding(5, 0, 5, 0);
 			lb_thongtinkhachhang.Name = "lb_thongtinkhachhang";
-			lb_thongtinkhachhang.Size = new Size(346, 37);
+			lb_thongtinkhachhang.Size = new Size(431, 47);
 			lb_thongtinkhachhang.TabIndex = 30;
 			lb_thongtinkhachhang.Text = "Thông Tin Khách Hàng";
 			// 
 			// KhachHang
 			// 
-			AutoScaleDimensions = new SizeF(7F, 15F);
+			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(1917, 1011);
+			ClientSize = new Size(2191, 1348);
 			Controls.Add(DanhSach_KhachHang);
 			Controls.Add(tb_timkiem);
 			Controls.Add(lb_timkiemkhachhang);
 			Controls.Add(groupBox1);
 			Controls.Add(lb_thongtinkhachhang);
-			Margin = new Padding(4, 3, 4, 3);
+			Margin = new Padding(5, 4, 5, 4);
 			Name = "KhachHang";
 			Text = "FormKhachHang";
 			DanhSach_KhachHang.ResumeLayout(false);

@@ -13,32 +13,67 @@ namespace DABanTuiXach
 {
 	public partial class Menu : Form
 	{
+		private Form currentForm = null;
 		private Form menu;
 		public Menu()
 		{
 			InitializeComponent();
 		}
-		private void OpenMenuForm(Form formcon)
+		private void OpenChildForm(Form childForm)
 		{
-			if (menu != null)
+			if (currentForm != null)
 			{
-				menu.Close();
+				currentForm.Close();
+				currentForm.Dispose();
 			}
-			menu = formcon;
-			formcon.TopLevel = false;
-			formcon.FormBorderStyle = FormBorderStyle.None;
-			formcon.Dock = DockStyle.Fill;
 
-			pn_trangchu.Controls.Add(formcon);
-			pn_trangchu.Tag = formcon;
-			formcon.BringToFront();
+			currentForm = childForm;
 
-			formcon.Show();
+			childForm.TopLevel = false;
+			childForm.FormBorderStyle = FormBorderStyle.None;
+			childForm.Dock = DockStyle.Fill;
+			childForm.Padding = new Padding(0);
+			childForm.Margin = new Padding(0);
+
+			pn_trangchu.Controls.Clear();
+			pn_trangchu.Controls.Add(childForm);
+
+			childForm.Show();
 		}
 		private void bt_sanphammenu_Click(object sender, EventArgs e)
 		{
 			lb_trangchu.Text = bt_sanphammenu.Text;
-			OpenMenuForm(new SanPham());
+			OpenChildForm(new SanPham());
+		}
+
+		private void bt_banhangmenu_Click(object sender, EventArgs e)
+		{
+			lb_trangchu.Text = bt_banhangmenu.Text;
+			OpenChildForm(new BanHang());
+		}
+
+		private void bt_hoadonmenu_Click(object sender, EventArgs e)
+		{
+			lb_trangchu.Text = bt_hoadonmenu.Text;
+			OpenChildForm(new HoaDon());
+		}
+
+		private void bt_khachhangmenu_Click(object sender, EventArgs e)
+		{
+			lb_trangchu.Text = bt_khachhangmenu.Text;
+			OpenChildForm(new KhachHang());
+		}
+
+		private void bt_dangxuatmenu_Click(object sender, EventArgs e)
+		{
+			lb_trangchu.Text = bt_dangxuatmenu.Text;
+			OpenChildForm(new DangNhap());
+		}
+
+		private void bt_nhanvienmenu_Click(object sender, EventArgs e)
+		{
+			lb_trangchu.Text = bt_nhanvienmenu.Text;
+			OpenChildForm(new NhanVien());
 		}
 	}
 }

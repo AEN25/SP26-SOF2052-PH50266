@@ -132,6 +132,7 @@
 			btnTimKiem.Size = new Size(182, 77);
 			btnTimKiem.TabIndex = 6;
 			btnTimKiem.Text = "Tìm kiếm";
+			btnTimKiem.Click += btnTimKiem_Click;
 			// 
 			// grpDanhSachHoaDon
 			// 
@@ -158,6 +159,7 @@
 			dgvHoaDon.RowHeadersWidth = 51;
 			dgvHoaDon.Size = new Size(1539, 439);
 			dgvHoaDon.TabIndex = 0;
+			dgvHoaDon.SelectionChanged += dgvHoaDon_SelectionChanged;
 			// 
 			// grpChiTietHoaDon
 			// 

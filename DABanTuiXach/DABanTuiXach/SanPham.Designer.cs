@@ -318,6 +318,7 @@
 			txtCRUDMauSac.TabIndex = 23;
 			txtCRUDMauSac.Text = "+";
 			txtCRUDMauSac.UseVisualStyleBackColor = true;
+			txtCRUDMauSac.Click += txtCRUDMauSac_Click;
 			// 
 			// cbbMaSanPham
 			// 
@@ -366,10 +367,13 @@
 			// 
 			// dgvSanPhamChiTiet
 			// 
+			dgvSanPhamChiTiet.AllowUserToAddRows = false;
+			dgvSanPhamChiTiet.AllowUserToDeleteRows = false;
 			dgvSanPhamChiTiet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 			dgvSanPhamChiTiet.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dgvSanPhamChiTiet.Location = new Point(0, 140);
 			dgvSanPhamChiTiet.Name = "dgvSanPhamChiTiet";
+			dgvSanPhamChiTiet.ReadOnly = true;
 			dgvSanPhamChiTiet.RowHeadersWidth = 51;
 			dgvSanPhamChiTiet.RowTemplate.Height = 24;
 			dgvSanPhamChiTiet.Size = new Size(1933, 349);
@@ -383,6 +387,7 @@
 			btnSuaSanPhamChiTiet.TabIndex = 17;
 			btnSuaSanPhamChiTiet.Text = "Sửa ";
 			btnSuaSanPhamChiTiet.UseVisualStyleBackColor = true;
+			btnSuaSanPhamChiTiet.Click += btnSuaSanPhamChiTiet_Click_1;
 			// 
 			// btnThemSanPhamChiTiet
 			// 
@@ -392,6 +397,7 @@
 			btnThemSanPhamChiTiet.TabIndex = 16;
 			btnThemSanPhamChiTiet.Text = "Thêm";
 			btnThemSanPhamChiTiet.UseVisualStyleBackColor = true;
+			btnThemSanPhamChiTiet.Click += btnThemSanPhamChiTiet_Click_1;
 			// 
 			// label8
 			// 

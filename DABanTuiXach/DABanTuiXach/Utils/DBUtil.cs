@@ -38,7 +38,7 @@ namespace DABanTuiXach.Utils
 				return ex.Message;
 			}
 		}
-   
+
 		//public static SqlDataReader ExecuteQueryReader(string sql, List<object> parameters)
 		//{
 		//    SqlCommand command = new(sql, _connection);
@@ -52,6 +52,21 @@ namespace DABanTuiXach.Utils
 		//    SqlDataReader reader = command.ExecuteReader();
 		//    return reader;
 		//}
+		public static object ExecuteScalar(string sql, List<object> param)
+		{
+			using (SqlCommand cmd = new SqlCommand(sql, _connection))
+			{
+				if (param != null)
+				{
+					for (int i = 0; i < param.Count; i++)
+					{
+						cmd.Parameters.AddWithValue($"@{i}", param[i] ?? DBNull.Value);
+					}
+				}
+
+				return cmd.ExecuteScalar();
+			}
+		}
 
 		public static DataTable ExecuteQueryTable(string sql, List<object> parameters)
 		{

@@ -18,6 +18,11 @@ namespace DABanTuiXach
 		{
 			InitializeComponent();
 			NhanVien_Load(null, null);
+			this.TopLevel = false;
+			this.Dock = DockStyle.Fill;
+			this.Padding = new Padding(0);
+			this.Margin = new Padding(0);
+			this.AutoScaleMode = AutoScaleMode.None;
 		}
 		private void NhanVien_Load(object sender, EventArgs e)
 		{

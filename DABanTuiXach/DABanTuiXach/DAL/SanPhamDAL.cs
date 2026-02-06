@@ -11,6 +11,17 @@ namespace DABanTuiXach.DAL
 {
 	public static class SanPhamDAL
 	{
+		public static DataTable SelectForCombo()
+		{
+			DBUtil.OpenConnection();
+			DataTable dt = DBUtil.ExecuteQueryTable(
+				"SELECT maSanPham, tenSanPham FROM SanPham",
+				null
+			);
+			DBUtil.CloseConnection();
+			return dt;
+		}
+
 		public static DataTable SelectAll()
 		{
 			DBUtil.OpenConnection();
@@ -68,5 +79,7 @@ namespace DABanTuiXach.DAL
 			);
 			DBUtil.CloseConnection();
 		}
+		
+
 	}
 }

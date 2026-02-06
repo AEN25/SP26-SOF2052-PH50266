@@ -17,7 +17,7 @@ namespace DABanTuiXach.DAO
 		public bool GioiTinh { get; set; }
 
 		public string Email { get; set; }
-
+		public int Quyen	 { get; set; }
 		public string DiaChi { get; set; }
 
 		public string TaiKhoan { get; set; }

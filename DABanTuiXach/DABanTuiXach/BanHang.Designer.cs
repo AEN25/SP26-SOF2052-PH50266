@@ -123,6 +123,7 @@
 			btnHuy.TabIndex = 10;
 			btnHuy.Text = "Hủy";
 			btnHuy.UseVisualStyleBackColor = true;
+			btnHuy.Click += btnHuy_Click_1;
 			// 
 			// btnThanhToan
 			// 
@@ -133,6 +134,7 @@
 			btnThanhToan.TabIndex = 9;
 			btnThanhToan.Text = "Thanh toán";
 			btnThanhToan.UseVisualStyleBackColor = true;
+			btnThanhToan.Click += btnThanhToan_Click_1;
 			// 
 			// lblTienThua
 			// 
@@ -143,6 +145,7 @@
 			lblTienThua.Size = new Size(100, 23);
 			lblTienThua.TabIndex = 8;
 			lblTienThua.Text = "Tiền thừa";
+			lblTienThua.TextChanged += lblTienThua_TextChanged;
 			// 
 			// label9
 			// 
@@ -161,6 +164,7 @@
 			txtTienKhachDua.Name = "txtTienKhachDua";
 			txtTienKhachDua.Size = new Size(280, 31);
 			txtTienKhachDua.TabIndex = 6;
+			txtTienKhachDua.TextChanged += txtTienKhachDua_TextChanged_1;
 			// 
 			// label8
 			// 
@@ -194,9 +198,12 @@
 			// 
 			// dtgvHoaDon
 			// 
+			dtgvHoaDon.AllowUserToAddRows = false;
+			dtgvHoaDon.AllowUserToDeleteRows = false;
 			dtgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dtgvHoaDon.Location = new Point(0, 169);
 			dtgvHoaDon.Name = "dtgvHoaDon";
+			dtgvHoaDon.ReadOnly = true;
 			dtgvHoaDon.RowHeadersWidth = 51;
 			dtgvHoaDon.RowTemplate.Height = 24;
 			dtgvHoaDon.Size = new Size(836, 702);
@@ -236,9 +243,12 @@
 			// 
 			// dtgvSanPhamChiTiet
 			// 
+			dtgvSanPhamChiTiet.AllowUserToAddRows = false;
+			dtgvSanPhamChiTiet.AllowUserToDeleteRows = false;
 			dtgvSanPhamChiTiet.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dtgvSanPhamChiTiet.Location = new Point(0, 169);
 			dtgvSanPhamChiTiet.Name = "dtgvSanPhamChiTiet";
+			dtgvSanPhamChiTiet.ReadOnly = true;
 			dtgvSanPhamChiTiet.RowHeadersWidth = 51;
 			dtgvSanPhamChiTiet.RowTemplate.Height = 24;
 			dtgvSanPhamChiTiet.Size = new Size(724, 935);
@@ -289,6 +299,7 @@
 			txtSoDienThoai.Name = "txtSoDienThoai";
 			txtSoDienThoai.Size = new Size(491, 47);
 			txtSoDienThoai.TabIndex = 2;
+			txtSoDienThoai.TextChanged += txtSoDienThoai_TextChanged;
 			// 
 			// txtTenKH
 			// 

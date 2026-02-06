@@ -14,52 +14,24 @@ namespace DABanTuiXach.DAL
 		public static DataTable SelectAll()
 		{
 			DBUtil.OpenConnection();
+
 			DataTable dt = DBUtil.ExecuteQueryTable(
-				"SELECT * FROM nhanVien",
+				"SELECT * FROM NhanVien",
 				null
 			);
+
 			DBUtil.CloseConnection();
 			return dt;
 		}
 
-		// Thêm nhân viên
 		public static void TaoMoi(NhanVienDAO nv)
 		{
 			DBUtil.OpenConnection();
-			DBUtil.ExecuteNonQuery(
-				@"INSERT INTO nhanVien
-                (tenNhanVien, soDienThoai, gioiTinh, email, diaChi, taikhoan, matkhau, trangThai)
-                VALUES (@0, @1, @2, @3, @4, @5, @6, @7)",
-				new List<object>
-				{
-					nv.TenNhanVien,
-					nv.SoDienThoai,
-					nv.GioiTinh ? 1 : 0,
-					nv.Email,
-					nv.DiaChi,
-					nv.TaiKhoan,
-					nv.MatKhau,
-					nv.TrangThai ? 1 : 0
-				}
-			);
-			DBUtil.CloseConnection();
-		}
 
-		// Cập nhật nhân viên
-		public static void CapNhat(NhanVienDAO nv)
-		{
-			DBUtil.OpenConnection();
 			DBUtil.ExecuteNonQuery(
-				@"UPDATE nhanVien SET
-                    tenNhanVien=@0,
-                    soDienThoai=@1,
-                    gioiTinh=@2,
-                    email=@3,
-                    diaChi=@4,
-                    taikhoan=@5,
-                    matkhau=@6,
-                    trangThai=@7
-                  WHERE maNhanVien=@8",
+				@"INSERT INTO NhanVien
+                (tenNhanVien, soDienThoai, gioiTinh, email, diaChi, taikhoan, matkhau, trangThai, quyen)
+                VALUES (@0,@1,@2,@3,@4,@5,@6,@7,@8)",
 				new List<object>
 				{
 					nv.TenNhanVien,
@@ -70,31 +42,68 @@ namespace DABanTuiXach.DAL
 					nv.TaiKhoan,
 					nv.MatKhau,
 					nv.TrangThai ? 1 : 0,
-					nv.MaNhanVien
-				}
+					nv.Quyen        // ⭐ THÊM QUYỀN
+                }
 			);
+
 			DBUtil.CloseConnection();
 		}
 
-		// Xóa nhân viên
+		public static void CapNhat(NhanVienDAO nv)
+		{
+			DBUtil.OpenConnection();
+
+			DBUtil.ExecuteNonQuery(
+				@"UPDATE NhanVien SET
+                    tenNhanVien=@0,
+                    soDienThoai=@1,
+                    gioiTinh=@2,
+                    email=@3,
+                    diaChi=@4,
+                    taikhoan=@5,
+                    matkhau=@6,
+                    trangThai=@7,
+                    quyen=@8
+                  WHERE maNhanVien=@9",
+				new List<object>
+				{
+					nv.TenNhanVien,
+					nv.SoDienThoai,
+					nv.GioiTinh ? 1 : 0,
+					nv.Email,
+					nv.DiaChi,
+					nv.TaiKhoan,
+					nv.MatKhau,
+					nv.TrangThai ? 1 : 0,
+					nv.Quyen,        // ⭐ UPDATE QUYỀN
+                    nv.MaNhanVien
+				}
+			);
+
+			DBUtil.CloseConnection();
+		}
+
 		public static void Xoa(int maNhanVien)
 		{
 			DBUtil.OpenConnection();
+
 			DBUtil.ExecuteNonQuery(
-				"DELETE FROM nhanVien WHERE maNhanVien=@0",
+				"DELETE FROM NhanVien WHERE maNhanVien=@0",
 				new List<object> { maNhanVien }
 			);
+
 			DBUtil.CloseConnection();
 		}
 
-		// Tìm theo mã
 		public static DataTable SelectById(int maNhanVien)
 		{
 			DBUtil.OpenConnection();
+
 			DataTable dt = DBUtil.ExecuteQueryTable(
-				"SELECT * FROM nhanVien WHERE maNhanVien=@0",
+				"SELECT * FROM NhanVien WHERE maNhanVien=@0",
 				new List<object> { maNhanVien }
 			);
+
 			DBUtil.CloseConnection();
 			return dt;
 		}
