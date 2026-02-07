@@ -15,9 +15,11 @@ namespace DABanTuiXach
 	{
 		private Form currentForm = null;
 		private Form menu;
-		public Menu()
+
+		public Menu(string tenNhanVien)
 		{
 			InitializeComponent();
+			lbl_tenhienthi.Text = "Xin chào: " + tenNhanVien;
 		}
 		private void OpenChildForm(Form childForm)
 		{

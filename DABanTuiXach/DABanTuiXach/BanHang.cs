@@ -60,7 +60,7 @@ namespace DABanTuiXach
 				NgayLapHoaDon = DateTime.Now,
 				PhuongThucThanhToan = "Tiền mặt",
 				TrangThai = false,
-				MaNhanVien = 1,
+				MaNhanVien = Session.MaNhanVien,
 				MaKhachHang = null 
 			};
 
@@ -327,7 +327,7 @@ namespace DABanTuiXach
 			int gia = Convert.ToInt32(row.Cells["giaSanPham"].Value);
 			int tonKho = Convert.ToInt32(row.Cells["soLuong"].Value);
 
-			// 👉 MỞ FORM NHẬP SỐ LƯỢNG
+			
 			using (FormSoLuong f = new FormSoLuong(tonKho))
 			{
 				if (f.ShowDialog() != DialogResult.OK) return;
@@ -394,7 +394,7 @@ namespace DABanTuiXach
 		{
 			string sdt = txtSoDienThoai.Text.Trim();
 
-			// Chỉ check khi đủ 10 số
+			
 			if (sdt.Length != 10) return;
 
 			var dt = KhachHangDAL.SelectBySoDienThoai(sdt);

@@ -50,6 +50,7 @@
 			btnDangNhap.TabIndex = 0;
 			btnDangNhap.Text = "Đăng Nhập";
 			btnDangNhap.UseVisualStyleBackColor = true;
+			btnDangNhap.Click += btnDangNhap_Click;
 			// 
 			// btnThoat
 			// 
@@ -61,6 +62,7 @@
 			btnThoat.TabIndex = 1;
 			btnThoat.Text = "Thoát";
 			btnThoat.UseVisualStyleBackColor = true;
+			btnThoat.Click += btnThoat_Click;
 			// 
 			// groupBox1
 			// 
@@ -87,7 +89,7 @@
 			linkLabel1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			linkLabel1.Location = new Point(160, 197);
 			linkLabel1.Name = "linkLabel1";
-			linkLabel1.Size = new Size(107, 17);
+			linkLabel1.Size = new Size(125, 20);
 			linkLabel1.TabIndex = 6;
 			linkLabel1.TabStop = true;
 			linkLabel1.Text = "Quên Mật Khẩu";
@@ -98,7 +100,7 @@
 			txtMk.Location = new Point(160, 164);
 			txtMk.Name = "txtMk";
 			txtMk.PasswordChar = '*';
-			txtMk.Size = new Size(234, 23);
+			txtMk.Size = new Size(234, 27);
 			txtMk.TabIndex = 5;
 			// 
 			// txtTk
@@ -106,7 +108,7 @@
 			txtTk.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			txtTk.Location = new Point(160, 81);
 			txtTk.Name = "txtTk";
-			txtTk.Size = new Size(234, 23);
+			txtTk.Size = new Size(234, 27);
 			txtTk.TabIndex = 4;
 			// 
 			// label3
@@ -115,7 +117,7 @@
 			label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			label3.Location = new Point(68, 164);
 			label3.Name = "label3";
-			label3.Size = new Size(68, 17);
+			label3.Size = new Size(80, 20);
 			label3.TabIndex = 3;
 			label3.Text = "Mật Khẩu";
 			// 
@@ -125,7 +127,7 @@
 			label2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			label2.Location = new Point(64, 88);
 			label2.Name = "label2";
-			label2.Size = new Size(73, 17);
+			label2.Size = new Size(84, 20);
 			label2.TabIndex = 2;
 			label2.Text = "Tài Khoản";
 			// 
@@ -135,14 +137,14 @@
 			label1.Font = new Font("Microsoft Sans Serif", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
 			label1.Location = new Point(341, 77);
 			label1.Name = "label1";
-			label1.Size = new Size(175, 36);
+			label1.Size = new Size(217, 42);
 			label1.TabIndex = 7;
 			label1.Text = "Đăng Nhập";
 			// 
 			// DangNhap
 			// 
 			AcceptButton = btnDangNhap;
-			AutoScaleDimensions = new SizeF(7F, 15F);
+			AutoScaleDimensions = new SizeF(9F, 18F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = SystemColors.Control;
 			BackgroundImageLayout = ImageLayout.Stretch;

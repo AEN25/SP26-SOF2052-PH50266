@@ -75,7 +75,7 @@ namespace DABanTuiXach.DAL
 					nv.TaiKhoan,
 					nv.MatKhau,
 					nv.TrangThai ? 1 : 0,
-					nv.Quyen,        // ⭐ UPDATE QUYỀN
+					nv.Quyen,        
                     nv.MaNhanVien
 				}
 			);
